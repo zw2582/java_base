@@ -16,6 +16,10 @@ public class CopyBytes {
 	/**
 	 * 复制文本
 	 * 一次一个字节
+	 * 
+	 * 这是一个低级的I/O处理程序，应该避免；
+	 * 而且文本中包含字符，应该使用字符流，字节流只适用于最原始的I/O
+	 * 
 	 * @author wei.w.zhou.integle.com
 	 * @param args
 	 * @throws IOException
