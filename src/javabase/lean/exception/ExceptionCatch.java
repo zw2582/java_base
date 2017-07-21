@@ -1,6 +1,7 @@
 package javabase.lean.exception;
 
 import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -87,6 +88,18 @@ public class ExceptionCatch {
 	 */
 	public static void throwException() {
 		throw new IllegalAccessError();
+	}
+	
+	public static void throwException2() {
+		throw new IllegalArgumentException();
+	}
+	
+	public static void throwException3() {
+		throw new NullPointerException();
+	}
+	
+	public static void throwException4() throws FileNotFoundException {
+		throw new FileNotFoundException();
 	}
 	
 	public static void main(String[] args) throws IOException {
