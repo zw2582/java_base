@@ -9,6 +9,9 @@ import java.util.Scanner;
 /**
  * 控制台输入
  * @author zhangjiao
+ * printStream:支持各种数据类型的打印
+ * DataStream:支持各种原始类型包括String的流的写出和读入,输入的结果是二进制的，看不懂的
+ * Scanner：支持数据读入的分割，以及类型检查和转换
  *
  */
 public class CommandInput {
