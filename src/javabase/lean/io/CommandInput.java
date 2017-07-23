@@ -6,6 +6,8 @@ import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.util.Scanner;
 
+import javabase.lean.exception.Ca;
+
 /**
  * 控制台输入
  * @author zhangjiao
@@ -25,6 +27,7 @@ public class CommandInput {
 		Scanner sc = new Scanner(System.in);
 		
 		PrintStream ps = new PrintStream(new FileOutputStream("print_stream.txt"));
+		ps.print(new Ca());
 
 		//检查printStream的错误，PrintStream不会抛出IOException
 		//		ps.checkError();
@@ -32,5 +35,6 @@ public class CommandInput {
 			ps.printf("data:%s%n", sc.next());
 //			System.out.println(sc.next());
 		}
+		
 	}
 }
