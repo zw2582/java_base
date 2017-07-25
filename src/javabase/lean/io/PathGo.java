@@ -88,6 +88,12 @@ public class PathGo {
 		 * Paths还实现了Comparable,可以支持比较和排序
 		 * isSameFile：判断路径是否定位了同一个文件
 		 */
+		
+		Path path5 = Paths.get("/home/user/down/txt.file");
+		for(Path p : path5) {
+			System.out.println(p.toString());
+			System.out.println(p.compareTo(path2));
+		}
 	}
 
 }
