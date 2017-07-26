@@ -16,6 +16,8 @@ import java.util.List;
 
 /**
  * 读、写、创建文件
+ * 
+ * @see http://docs.oracle.com/javase/tutorial/essential/io/file.html
  * @author wei.w.zhou.integle.com
  * @copyright 2017年7月26日下午5:14:20
  */
