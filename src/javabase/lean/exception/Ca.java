@@ -8,6 +8,17 @@ import java.util.Scanner;
 
 public class Ca {
 	
+	private String go;
+	
+	
+	public String getGo() {
+		return go;
+	}
+
+	public void setGo(String go) {
+		this.go = go;
+	}
+
 	public void caca1() throws FileNotFoundException {
 		throw new FileNotFoundException();
 	}
