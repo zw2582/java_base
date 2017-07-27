@@ -149,12 +149,12 @@ public class ReadWriteAndCreate {
 		try(SeekableByteChannel bchannel = Files.newByteChannel(path)) {
 			
 			//定义byteBuffer
-			ByteBuffer allocate = ByteBuffer.allocate(100);
+			ByteBuffer allocate = ByteBuffer.allocate(10);
 			//读取数据
 			while(bchannel.read(allocate) > 0) {
-				allocate.rewind();
-				System.out.println(Charset.defaultCharset().decode(allocate));
 				allocate.flip();
+				System.out.println(Charset.defaultCharset().decode(allocate));
+				allocate.rewind();
 			}
 		}
 	}
@@ -209,12 +209,12 @@ public class ReadWriteAndCreate {
 //		bufferedRead("1_w.txt");
 //		bufferedWrite("1_w.txt");
 //		outputStreamWriter("1_w.txt");
-//		ChannelRead("1_channel.txt");
+		ChannelRead("1_channel.txt");
 		
 //		channelWrite("1_channel.txt");
-		File file = new File("cac.txt");
+//		File file = new File("cac.txt");
 //		createFile("create.txt");
-		createTmpFile();
+//		createTmpFile();
 		
 	}
 }
