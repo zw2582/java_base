@@ -36,7 +36,7 @@ import java.util.Set;
  * @author wei.w.zhou.integle.com
  * @copyright 2017年7月26日下午5:14:20
  */
-public class ReadWriteAndCreate {
+public class ReadWriteAndCreateFile {
 
 	/**
 	 * 对于小文件的常见操作
