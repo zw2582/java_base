@@ -3,6 +3,7 @@ package javabase.lean.io;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.BufferedWriter;
+import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -23,8 +24,9 @@ public class ObjectStream {
 	public static final String file = "obj_io.txt";
 	
 	public static void main(String[] args) throws IOException, ClassNotFoundException {
-		output();
+//		output();
 //		input();
+		byteObject();
 	}
 
 	/**
@@ -65,5 +67,17 @@ public class ObjectStream {
 			System.out.println(a1.equals(a2));
 //			System.out.println(a3);
 		}
+	}
+	
+	public static void byteObject() throws IOException {
+		ByteArrayOutputStream bao = new ByteArrayOutputStream();
+		ObjectOutputStream oos = new ObjectOutputStream(bao);
+		
+		A a = new A();
+		oos.writeObject(a);
+		
+		byte[] ba = bao.toByteArray();
+		
+		System.out.println(new String(ba));
 	}
 }
