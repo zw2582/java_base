@@ -13,9 +13,13 @@ public class SleepMessage {
 		Thread thread = new Thread(new Message());
 		thread.start();
 		
+		//等待thread执行完成
+		thread.join(4000);
 		//等待4秒后终止线程，条件是该线程支持终止
-		thread.sleep(4000);
+//		thread.sleep(4000);
 		thread.interrupt();
+		thread.join();
+		System.out.println("thread 执行完成");
 	}
 	
 	static class Message implements Runnable {
@@ -23,20 +27,20 @@ public class SleepMessage {
 		@Override
 		public void run() {
 			while (true) {
-				/*try {
+				try {
 					Thread.sleep(1000);
 				} catch (InterruptedException e) {
 					//接收到打断，终止进程
 					return;
 				}
-				System.out.println(1);*/
+				System.out.println(1);
 				/**
 				 * 接收到打断，终止进程,
 				 * 如果不加这个操作，外面无法打断该线程，这样的线程叫做不支持终止线程
 				 */
-				if (Thread.interrupted()) {
-					return ;
-				}
+//				if (Thread.interrupted()) {
+//					return ;
+//				}
 			}
 		}
 		
