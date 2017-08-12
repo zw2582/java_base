@@ -8,13 +8,29 @@ public class Count3 {
 
 	private volatile int c = 0;
 	
-	public void incre() {
-		c++;
+	public synchronized void incre() {
+		try {
+			int a = c;
+			Thread.sleep(100);
+			a = a + 1;
+			Thread.sleep(100);
+			c = a;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 	}
 	
-	public void getValue() {
-		c++;
-		System.out.println(c);
+	public synchronized void getValue() {
+		try {
+			int a = c;
+			Thread.sleep(100);
+			a = a - 1;
+			Thread.sleep(100);
+			c = a;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	static class CountRunner implements Runnable {
@@ -37,17 +53,24 @@ public class Count3 {
 				if (get) {
 					this.count.getValue();
 				} else {
-					count.incre();
+					this.count.incre();
 				}
 			}
 		}
 		
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		Count3 count = new Count3();
-		int index = 1000;
-		new Thread(new CountRunner(count, true, index)).start();
-		new Thread(new CountRunner(count, true, index)).start();
+		int index = 5;
+		Thread t1 = new Thread(new CountRunner(count, true, index));
+		Thread t2 = new Thread(new CountRunner(count, false, index));
+		
+		t1.start();
+		t2.start();
+		
+		t1.join();
+		t2.join();
+		System.out.println(count.c);
 	}
 }
