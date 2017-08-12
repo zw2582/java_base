@@ -13,10 +13,14 @@ import javabase.lean.thread.model.Producer;
  */
 public class GuardBlock2 {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		Drop drop = new Drop();
 		
-		new Thread(new Producer(drop)).start();
 		new Thread(new Customer(drop)).start();
+		new Thread(new Customer(drop)).start();
+		new Thread(new Customer(drop)).start();
+		Thread.sleep(2000);
+		
+		new Thread(new Producer(drop)).start();
 	}
 }

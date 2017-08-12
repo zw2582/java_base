@@ -26,9 +26,11 @@ public class Drop {
 	 * @throws InterruptedException
 	 */
 	public synchronized String tack() throws InterruptedException {
+		System.out.println(Thread.currentThread().getName()+":begin to tack");
 		while(empty) {
 			wait();
 		}
+		System.out.println(Thread.currentThread().getName()+":"+message);
 		empty = true;
 		notifyAll();
 		return message;
