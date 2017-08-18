@@ -12,8 +12,10 @@ import java.util.regex.Pattern;
 public class TestHarness1 {
 	
 	public static void main(String[] args) {
-		String quote = Pattern.quote("hello123\n world");
-		System.out.println(quote);
+//		String quote = Pattern.quote("hello123\n world");
+//		System.out.println(quote);
+		
+		test1();
 		
 	}
 
@@ -24,12 +26,12 @@ public class TestHarness1 {
 	 * @copyright 2017年8月12日下午6:00:49
 	 */
 	public static void test1() {
-		String regex = "\\w$";
+		String regex = "o";
 		String input = "hello world";
 		
 		Pattern pattern = Pattern.compile(regex);
 		Matcher matcher = pattern.matcher(input);
-		
+		System.out.println(matcher.lookingAt());
 		while (matcher.find()) {
 			System.out.format("I found the text" +
                     " \"%s\" starting at " +
