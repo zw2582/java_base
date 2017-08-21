@@ -16,7 +16,61 @@ import java.util.Random;
 public class ListDemo {
 	
 	public static void main(String[] args) {
-		testListIterator();
+		testBlukOpration();
+	}
+	
+	public static void testBlukOpration() {
+		//定义List集合
+		String[] a = new String[]{"a", "b", "c"};
+		ArrayList<String> al = new ArrayList<>(Arrays.asList(a));
+		
+		String[] a1 = new String[]{"b","c"};
+		List<String> al1 = new ArrayList<>(Arrays.asList(a1));
+		
+		//fill
+//		Collections.fill(al, "d");
+		System.out.println(al);
+		
+		//fistSubList
+		System.out.println(Collections.indexOfSubList(al, al1));
+	}
+	
+	/**
+	 * range-view操作
+	 * subList
+	 * @author wei.w.zhou.integle.com
+	 * @copyright 2017年8月21日下午2:11:04
+	 */
+	public static void testSubList() {
+		//定义List集合
+		String[] a = new String[]{"a", "b", "c"};
+		ArrayList<String> al = new ArrayList<>(Arrays.asList(a));
+		
+		//返回的list有主list支持，所以所有非结构操作都会互相影响
+		List<String> subList = al.subList(0, 3);
+		
+		//显示的索引位置不一样
+		System.out.println("*****显示不同元素的索引****");
+		System.out.println(al.indexOf("c"));
+		System.out.println(subList.indexOf("c"));
+		
+		//添加元素
+		System.out.println("****添加元素****");
+		subList.add("d");
+		System.out.println(al.indexOf("d"));
+		System.out.println(subList.indexOf("d"));
+		
+		//删除元素
+		System.out.println("****删除元素****");
+		subList.clear();
+		System.out.println(al);
+		System.out.println(subList);
+		
+		//主list添加元素
+		System.out.println("****主list添加元素****");
+		al.remove(2);
+		System.out.println(al);
+		System.out.println(subList);
 	}
 	
 	/**
@@ -26,14 +80,18 @@ public class ListDemo {
 	 */
 	public static void testListIterator() {
 		//定义List集合
-		String[] a = new String[]{"a", "b", "c","1","2","4","7","6"};
+		String[] a = new String[]{"a", "b", "c"};
 		ArrayList<String> al = new ArrayList<>(Arrays.asList(a));
 		
 		//正向遍历
-		ListIterator<String> lit = al.listIterator(5);
+		ListIterator<String> lit = al.listIterator(0);
+		System.out.println(lit.nextIndex());
+		System.out.println(lit.previousIndex());
 		while (lit.hasNext()) {
 			System.out.print(lit.next()+" ");
+			System.out.print("index:"+lit.nextIndex()+",");
 		}
+		System.exit(0);
 		
 		//反向遍历
 		System.out.println();
