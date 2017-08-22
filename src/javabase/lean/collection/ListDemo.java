@@ -16,7 +16,7 @@ import java.util.Random;
 public class ListDemo {
 	
 	public static void main(String[] args) {
-		testBlukOpration();
+		testBluk();
 	}
 	
 	public static void testBlukOpration() {
@@ -160,6 +160,25 @@ public class ListDemo {
 			it.next();
 			it.remove();
 		}
+		
+		System.out.println(al);
+	}
+	
+	public static void testBluk() {
+		List<String> al = new ArrayList<>(Arrays.asList("a", "b", "c"));
+		
+		al.removeAll(Collections.singleton("b"));
+		System.out.println(al);
+		
+		al.addAll(Arrays.asList("e","f"));
+		System.out.println("addAll:"+al);
+		
+		boolean containsAll = al.containsAll(Arrays.asList("a", "c"));
+		System.out.println("containsAll:"+containsAll);
+		
+		al.retainAll(Arrays.asList("a","c","f"));
+		System.out.println("retainAll:"+al);
+		
 	}
 
 }
