@@ -30,5 +30,6 @@ public class SortedSetDemo {
 		
 		//3.访问comparator
 		System.out.println("comparator:"+ts.comparator());
+		
 	}
 }
