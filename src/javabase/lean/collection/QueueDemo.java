@@ -16,6 +16,7 @@ public class QueueDemo {
 		System.out.println(q.offer("c"));
 		System.out.println(q.offer("d"));
 		
+		System.out.println("element:"+q.element());
 		System.out.println("remove:"+q.remove());
 		
 //		System.out.println(q.add("d"));
