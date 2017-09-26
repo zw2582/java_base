@@ -28,13 +28,13 @@ public class MethodReference {
 			    "Patricia", "Robert", "Michael", "Linda" };
 		Arrays.sort(stringArray, String::compareToIgnoreCase);
 		
-		/*Person p2 = new Person();
+		Person p2 = new Person();
 		Person p3 = new Person();
 		Person[] pl = {p1,p2,p3};
 		
 		Arrays.sort(pl, Person::comparetor);
-		*/
-//		gogo(p1, Person::god);
+		
+		StringDemo.sort(pl, Person::comparetor);
 		
 		//引用构造函数
 		//1.传统lambda
@@ -47,7 +47,7 @@ public class MethodReference {
 		System.out.println(dest2);
 	}
 	
-	public static <T> void gogo(T p, B<? super T> c) {
+	public static <T> void gogo(T[] p, B<? super T> c) {
 		System.out.println("caca");
 	}
 	
