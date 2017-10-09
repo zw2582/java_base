@@ -18,10 +18,14 @@ public class Question {
 		Pattern p = Pattern.compile(regex);
 		Matcher m = p.matcher(input);
 		
+		boolean matches = m.matches();
+		System.out.println("matches:"+matches);
+		
 		while(m.find()) {
 			System.out.println(m.group());
 		}
 		
 		System.out.println(m.matches());
+		
 	}
 }
