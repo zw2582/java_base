@@ -16,7 +16,7 @@ import java.util.Random;
 public class ListDemo {
 	
 	public static void main(String[] args) {
-		testBluk();
+		testIteratorRemove();
 	}
 	
 	public static void testBlukOpration() {
@@ -179,6 +179,18 @@ public class ListDemo {
 		al.retainAll(Arrays.asList("a","c","f"));
 		System.out.println("retainAll:"+al);
 		
+	}
+	
+	public static void testIteratorRemove() {
+		List<String> al = new ArrayList<>(Arrays.asList("a", "b", "c"));
+		ListIterator<String> iterator = al.listIterator();
+		
+		while(iterator.hasNext()){
+			iterator.next();
+			iterator.add("dd");
+		}
+		
+		al.stream().forEach(e->System.out.print(e+","));
 	}
 
 }
