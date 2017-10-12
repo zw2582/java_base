@@ -62,4 +62,35 @@ public class NumberDemo {
 		long ll = 23;
 		Long l = 23l;
 	}
+	
+	/**
+	 * Integer特有的方法
+	 */
+	@Test
+	public void IntegerMethod() {
+		//Integer.decode:将字符串解析成整形
+		//可接受十进制，八进制，十六进制的字符串表示，其他的抛出运行时错误
+		Integer decodeval = Integer.decode("023");
+		System.out.println("'023'被Integer.decode后＝"+decodeval);
+		
+		Integer decodeval2 = Integer.decode("0x23");
+		System.out.println("'0x23'被Integer.decode后＝"+decodeval2);
+		
+		//Integer.parseInt:用不用的进制解析字符串为整数，抛出运行时异常
+		int parseInt2 = Integer.parseInt("1001101010011111", 2);
+		int parseInt8 = Integer.parseInt("23", 8);
+		int parseInt10 = Integer.parseInt("50");
+		int parseInt16 = Integer.parseInt("23", 16);
+		System.out.format("int2:%d,int8:%d,int10:%d,int16:%d", parseInt2, 
+				parseInt8, parseInt10, parseInt16);
+		System.out.println();
+		
+		//Integer.valueOf与Integer.parseInt相似，只不过返回的是包装类型，且可以接受整形原始类型
+		Integer value10 = Integer.valueOf("50");
+		Integer v = Integer.valueOf(23);
+		Integer value16 = Integer.valueOf("23", 16);
+		System.out.format("int10:%d,v:%d,int16:%d", value10, 
+				v, value16);
+		
+	}
 }
