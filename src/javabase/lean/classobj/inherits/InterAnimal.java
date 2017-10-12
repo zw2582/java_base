@@ -8,6 +8,8 @@ public interface InterAnimal {
 		System.out.println("i am InterAnimal");
 	}
 	
+	void dd();
+	
 	static void interPrint() {
 		System.out.println("i am interPrint");
 	}

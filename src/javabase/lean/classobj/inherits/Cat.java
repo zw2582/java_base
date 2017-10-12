@@ -2,9 +2,15 @@ package javabase.lean.classobj.inherits;
 
 public class Cat extends Animal implements InterAnimal {
 	
+	static int a = 1;
+	
 	public Cat(int age, int i) {
 		super(age);
 		System.out.println("i am sub class and age:"+age+",i:"+i);
+	}
+	
+	public Cat() {
+		super(a);
 	}
 //    public static void testClassMethod() {
 //        System.out.println("The static method in Cat");
@@ -37,4 +43,10 @@ public class Cat extends Animal implements InterAnimal {
     	//InterAnimal cat = new Cat();
     	//cat.go();
     }
+
+	@Override
+	public void dd() {
+		// TODO Auto-generated method stub
+		
+	}
 }
