@@ -1,5 +1,9 @@
 package javabase.lean.classobj.number;
 
+import java.rmi.registry.LocateRegistry;
+import java.util.Calendar;
+import java.util.Locale;
+
 import org.junit.Test;
 
 public class NumberDemo {
@@ -61,6 +65,12 @@ public class NumberDemo {
 		//使用包装类定义数字时，Double需要加D，Float需要加f，Long需要加l，原始变量不需要
 		long ll = 23;
 		Long l = 23l;
+		
+		float z = 23.12f;
+		Float zz = 23.23f;
+		
+		double d = 23.23;
+		Double dd = 23.23;
 	}
 	
 	/**
@@ -99,5 +109,49 @@ public class NumberDemo {
 	 */
 	@Test
 	public void numberFormat() {
+		int i = 1324243;
+		
+		/**
+		 * 010:总长度至少10个长度，不足用0占位
+		 * －：表示左对齐
+		 * ，：表示科学计数
+		 * .3：表示3个小数点
+		 */
+		System.out.format("%d%n", i);
+		System.out.format("%-8d%n", i);
+		System.out.format("%08d%n", i);
+		System.out.format("%0+10d%n", i);
+		System.out.format("%,010d%n", i);
+		
+		double pi = Math.PI;
+		System.out.format("%f%n", pi);
+		System.out.format("%10.3f%n", pi);
+		System.out.format("%-10.4f%n", pi);
+		System.out.format("%010.3f%n", pi);
+		System.out.format("%+,.7f%n", pi);
+		System.out.format(Locale.FRANCE, "%.5f%n", pi);
+		
+		Calendar c = Calendar.getInstance();
+		//日期表示
+		System.out.format("%tY-%tm-%td %tl:%tM", c, c, c, c, c);
+	}
+	
+	/**
+	 * Math类的测试
+	 */
+	@Test
+	public void mathTest() {
+		int i = -12;
+		
+		float a = 23.85f;
+		
+		System.out.format("Math.abs:返回绝对值，%d%n", Math.abs(i));
+		System.out.format("Math.ceil:返回大于当前值的最小整数，%.0f%n", Math.ceil(a));
+		System.out.format("Math.floor：小于当前值的最大整数，%.0f%n", Math.floor(a));
+		System.out.format("Math.rint:四舍五入当前值的整数，%.0f%n", Math.rint(a));
+		System.out.format("Math.round:四舍五入当前值的整数，%d%n", Math.round(a));
+		
+		//0.0<= x < 1.0的随机数
+		double random = Math.random();
 	}
 }
