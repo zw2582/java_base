@@ -93,4 +93,11 @@ public class NumberDemo {
 				v, value16);
 		
 	}
+	
+	/**
+	 * 数字格式化输出
+	 */
+	@Test
+	public void numberFormat() {
+	}
 }
