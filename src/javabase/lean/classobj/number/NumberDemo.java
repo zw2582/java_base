@@ -99,5 +99,12 @@ public class NumberDemo {
 	 */
 	@Test
 	public void numberFormat() {
+		/**
+		 * d:十进制这个整数
+		 * f：浮点数
+		 * n：换行符
+		 */
+		System.out.format("integer:%d,float:%f%n", 12,12.2);
+		System.out.format("%2B%n");
 	}
 }
